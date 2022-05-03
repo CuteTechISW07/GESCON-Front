@@ -1,16 +1,12 @@
 import {useState} from 'react'
-import Nave from '../Principal/nav'
+
 
 function Login(){
 
-    return(
-        <div>
-            <Nave/>
-            <div className="m-0  row justify-content-center align-items-center">
+    return(<div className="m-0  row justify-content-center align-items-center">
             <Formulario />
             </div>
             
-        </div>
     );
 }
 
