@@ -11,3 +11,93 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --fuenteHeading: 'PT Sans', sans-serif;
+  --fuenteParrafos: 'Open Sans', sans-serif;
+
+  --primario: #1cca41;
+  --gris: #555555;
+  --blanco: #ffffff;
+  --negro: #000000;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%; /* 1 rem = 10px */    
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+header{
+  background-color: var(--primario);
+  height: 10rem;
+}
+footer{
+  background-color: var(--primario);
+  height: 8rem;
+}
+
+.no-margin{
+  margin: 0;
+}
+.margin-up{
+  margin-top: 1rem;
+}
+.margin-left{
+  margin-left: 1rem;
+}
+.margin-right{
+  margin-right: 1rem;
+}
+.margin-down{
+  margin-bottom: 1rem;
+}
+.padd{
+  padding: 1rem;
+}
+
+.logo {
+  color: var(--blanco);
+  font-weight: 700;
+  text-align: left;
+  text-decoration: none;
+}
+.logo:hover{
+  cursor: pointer;
+  color: var(--negro);
+}
+
+.no-padding {
+  padding: 0;
+}
+.nave{
+  text-decoration: none;
+  color:var(--blanco);
+}
+.nave:hover{
+  cursor: pointer;
+  color: var(--negro);
+}
+
+.boton {
+  display: inline-block;
+  text-decoration: none;
+  font-family: var(--fuenteHeading);
+  color: var(--blanco);
+  background-color: var(--primario);
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  border: none;
+
+}
+.boton:hover {
+  cursor: pointer;
+  color: var(--negro);
+}
