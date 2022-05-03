@@ -1,13 +1,12 @@
 import React from 'react';
 import pictures from '../assets/pictures';
-import Navegacion from './nav';
+
 
 const principal= () => {
     return(
         
             <div>
-                                  
-            <Navegacion/>
+                     
                 <div class="container-fluid padd">
                     <div class="row justify-content-around">
                         <div class="col-7">
