@@ -3,14 +3,19 @@ import Login from './Login/Login';
 import Indx from './Principal/principal';
 import ConsRev from './Consultar_revisiones/ConsRev';
 import Nave from './Principal/nav'
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import './App.css';
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Nave/>
-      <Indx />
-    </div>
+      <Routes>
+        <Route path='/' element={<Indx />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/contacto' element={<div></div>} />
+      </Routes>
+    </BrowserRouter>
     
     
   );

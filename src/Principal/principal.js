@@ -7,55 +7,55 @@ const principal= () => {
         
             <div>
                      
-                <div class="container-fluid padd">
-                    <div class="row justify-content-around">
-                        <div class="col-7">
-                        <main class="text-center">
+                <div className="container-fluid padd">
+                    <div className="row justify-content-around">
+                        <div className="col-7">
+                        <main className="text-center">
                             <h3>Nuestro sitio</h3>
                             
                             <div>
-                                <img class="img-fluid padd" loading="lazy" src={pictures.img1} alt="imagen"/> 
-                                <h4 class="no-margin">Proximos eventos</h4>
+                                <img className="img-fluid padd" loading="lazy" src={pictures.img1} alt="imagen"/> 
+                                <h4 className="no-margin">Proximos eventos</h4>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, rerum, reprehenderit consequatur perferendis officia, vitae fuga animi temporibus itaque atque reiciendis ea excepturi! Molestias aperiam fugiat deleniti laudantium atque numquam?</p>
-                                <a href="#" class="boton">Mas información</a>
+                                <a href="#" className="boton">Mas información</a>
                             </div>
                                         
                             <div>
-                                <img class="img-fluid padd" loading="lazy" src={pictures.img2} alt="imagen"/>
-                                <h4 class="no-margin">¿Quieres participar?</h4>
+                                <img className="img-fluid padd" loading="lazy" src={pictures.img2} alt="imagen"/>
+                                <h4 className="no-margin">¿Quieres participar?</h4>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, rerum, reprehenderit consequatur perferendis officia, vitae fuga animi temporibus itaque atque reiciendis ea excepturi! Molestias aperiam fugiat deleniti laudantium atque numquam?</p>
-                                <a href="#" class="boton ">Mas información</a>
+                                <a href="#" className="boton ">Mas información</a>
                             </div>
                             
-                            <div class="">
-                                <img class="img-fluid padd" loading="lazy" src={pictures.img3} alt="imagen"/> 
-                                <h4 class="no-margin">Contactanos</h4>
+                            <div className="">
+                                <img className="img-fluid padd" loading="lazy" src={pictures.img3} alt="imagen"/> 
+                                <h4 className="no-margin">Contactanos</h4>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, rerum, reprehenderit consequatur perferendis officia, vitae fuga animi temporibus itaque atque reiciendis ea excepturi! Molestias aperiam fugiat deleniti laudantium atque numquam?</p>
-                                <a href="#" class="boton">Mas información</a>
+                                <a href="#" className="boton">Mas información</a>
                                 
                             </div>
                             
                         </main>
                         </div>
-                        <div class="col-3">
+                        <div className="col-3">
                         
                             <h3>Contacto</h3>
             
                             <form>
-                                <div class="mb-3">
-                                <label for="email1" class="form-label">Direccion email</label>
-                                <input type="email" class="form-control" id="email1" aria-describedby="emailHelp"/>
-                                <div id="emailHelp" class="form-text">Nunca compartimos tu informacion con alguien mas.</div>
+                                <div className="mb-3">
+                                <label for="email1" className="form-label">Direccion email</label>
+                                <input type="email" className="form-control" id="email1" aria-describedby="emailHelp"/>
+                                <div id="emailHelp" className="form-text">Nunca compartimos tu informacion con alguien mas.</div>
                                 </div>
-                                <div class="mb-3">
-                                <label for="comment1" class="form-label">Comentarios</label>
-                                <textarea class="form-control" id="comment1" rows="3"></textarea>
+                                <div className="mb-3">
+                                <label for="comment1" className="form-label">Comentarios</label>
+                                <textarea className="form-control" id="comment1" rows="3"></textarea>
                                 </div>
-                                <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="Check1"/>
-                                <label class="form-check-label" for="Check1">Check</label>
+                                <div className="mb-3 form-check">
+                                <input type="checkbox" className="form-check-input" id="Check1"/>
+                                <label className="form-check-label" for="Check1">Check</label>
                                 </div>
-                                <button type="submit" class="boton">Enviar</button>
+                                <button type="submit" className="boton">Enviar</button>
                             </form>
                 
                             
@@ -66,26 +66,26 @@ const principal= () => {
                     
                 </div>
             
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row align-items-start">
-                            <div class="margin-up col-4">
-                                    <a class="logo" href="index.html">
-                                        <h1 class="no-margin">GESCON</h1>
+                <footer className="footer">
+                    <div className="container-fluid">
+                        <div className="row align-items-start">
+                            <div className="margin-up col-4">
+                                    <a className="logo" href="index.html">
+                                        <h1 className="no-margin">GESCON</h1>
                                     </a>
                                 </div>
-                                <div class="margin-up col-8">
-                                    <nav class="text-end ">
-                                        <a href="/nosotros" class="nave padd">Nosotros</a>
-                                        <a href="/congresos" class="nave padd" >Congresos</a>
-                                        <a href="/contacto" class="nave padd">Contacto</a>
+                                <div className="margin-up col-8">
+                                    <nav className="text-end ">
+                                        <a href="/nosotros" className="nave padd">Nosotros</a>
+                                        <a href="/congresos" className="nave padd" >Congresos</a>
+                                        <a href="/contacto" className="nave padd">Contacto</a>
                                     </nav>
                                 </div>
                         </div>          
                     </div>
             
-                    <div class="margin-up container text-center">
-                        <p class="no-margin">Derechos reservados</p>
+                    <div className="margin-up container text-center">
+                        <p className="no-margin">Derechos reservados</p>
                     </div>
                 </footer>
             </div>

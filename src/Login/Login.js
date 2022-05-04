@@ -1,11 +1,13 @@
 import {useState} from 'react'
+import authService from '../services/auth-service';
 
 
 function Login(){
 
-    return(<div className="m-0  row justify-content-center align-items-center">
+    return(
+        <div className="m-0  row justify-content-center align-items-center">
             <Formulario />
-            </div>
+        </div>
             
     );
 }
@@ -22,29 +24,12 @@ function Formulario(){
     
     const handleSubmit = async(e) =>{
         e.preventDefault();
-        const bodyReq = {
-            correo : correo,
-            clave : contra
-        }
-
-        const requestOptions = {
-            method : "POST",
-            headers : {'Content-Type' : 'application/json'},
-            body : JSON.stringify(bodyReq)
-        }
-        const data = await fetch("http://localhost:3500/User/authUser",requestOptions);
-        const dataJson = await data.json();
-        console.log(dataJson);
+        await authService.login(correo,contra);
     }
 
-    const logOut = async(e) =>{
+    const logOut = (e) =>{
         e.preventDefault();
-        const requestOptions = {
-            method : "POST",
-        }
-        const data = await fetch("http://localhost:3500/User/logout", requestOptions);
-        const dataJson = await data.json();
-        console.log(dataJson);
+        authService.logout();
     }
 
     return(

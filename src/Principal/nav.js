@@ -1,30 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const principal= () => {
     return(
-<header class="header container-xxl">
-                    <div class="container-fluid">
-                        <div class="row align-items-start">
-                            <div class="margin-up col-4">
-                                <a href="/" class="logo">
-                                    <h1 class="no-margin">GESCON</h1>
+<header className="header container-xxl">
+                    <div className="container-fluid">
+                        <div className="row align-items-start">
+                            <div className="margin-up col-4">
+                                <a href="/" className="logo">
+                                    <h1 className="no-margin">GESCON</h1>
                                 </a>
                             </div>
-                            <div class="margin-up col-8">
-                            <nav class="text-end ">
+                            <div className="margin-up col-8">
+                            <nav className="text-end ">
                                 
-                                <a href="congresos" class="nave padd" >Congresos</a>
-                                <a href="contacto" class="nave padd">Contacto</a>                      
-                                <a href="login" class="nave padd">Login</a>                      
+                                <Link to="congresos" className="nave padd" >Congresos</Link>
+                                <Link to="contacto" className="nave padd">Contacto</Link>                      
+                                <Link to="login" className="nave padd">Login</Link>                      
                                 
                                 
                             </nav>
                             </div>            
                         </div>
                     </div>
-                    <div class="margin-up container text-center">
-                        <h2 class="no-margin">Enterate sobre los siguientes eventos</h2>
+                    <div className="margin-up container text-center">
+                        <h2 className="no-margin">Enterate sobre los siguientes eventos</h2>
                     </div>
                 </header>
 
