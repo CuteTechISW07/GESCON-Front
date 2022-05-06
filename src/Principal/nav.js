@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const principal= () => {
     return(
-<header className="header container-xxl">
+<header className="header container-fluid">
                     <div className="container-fluid">
                         <div className="row align-items-start">
                             <div className="margin-up col-4">
@@ -18,7 +18,7 @@ const principal= () => {
                                 <Link to="congresos" className="nave padd" >Congresos</Link>
                                 <Link to="contacto" className="nave padd">Contacto</Link>                      
                                 <Link to="login" className="nave padd">Login</Link>                      
-                                
+                                <Link to="registry" className='nave padd'>Registro</Link>
                                 
                             </nav>
                             </div>            

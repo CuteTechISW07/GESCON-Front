@@ -25,6 +25,7 @@ function Formulario(){
     const handleSubmit = async(e) =>{
         e.preventDefault();
         await authService.login(correo,contra);
+        console.log(correo,contra)
     }
 
     const logOut = (e) =>{
