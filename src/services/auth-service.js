@@ -5,7 +5,7 @@ const registry = async (user) =>{
     const requestOptions = {
         method : "POST",
         headers : authHeader(),
-        body : user
+        body : JSON.stringify(user)
     }
     const data = await fetch("http://localhost:3500/User/createUser",requestOptions);
     const dataJson = await data.json();
@@ -27,24 +27,19 @@ const login = async (email, password) =>{
     const dataJson = await data.json();
     
     if(dataJson.token){
-        localStorage.setItem("user", JSON.stringify(dataJson))
+        localStorage.setItem("token", dataJson.token)
     }
 
     return dataJson;
 }
 
 const logout = () =>{
-    localStorage.removeItem("user");
-}
-
-const getCurrentUser = () =>{
-    return JSON.parse(localStorage.getItem("user"))
+    localStorage.removeItem("token");
 }
 
 const authService = {
     login,
     logout,
-    getCurrentUser,
     registry,
 }
 

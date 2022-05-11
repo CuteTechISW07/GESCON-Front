@@ -1,5 +1,8 @@
+import {useDispatch, useSelector} from 'react-redux'
+import {userLogin} from '../redux/actions/userActions'
 import {useState} from 'react'
 import authService from '../services/auth-service';
+import { useNavigate } from 'react-router-dom';
 
 
 function Login(){
@@ -13,8 +16,12 @@ function Login(){
 }
 
 function Formulario(){
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const [correo, setCorreo] = useState('');
     const [contra, setContra] = useState('');
+
 
     const handleChange = (toChange, value) =>{
         if(toChange === "correo")
@@ -24,8 +31,21 @@ function Formulario(){
     
     const handleSubmit = async(e) =>{
         e.preventDefault();
-        await authService.login(correo,contra);
-        console.log(correo,contra)
+        const login = await authService.login(correo,contra);
+        if(login.token){
+            const userData = {
+                ...login.informacion,
+                token: login.token,
+                autenticado : true
+            }
+            dispatch(userLogin(userData))
+            navigate("/")
+        }else{
+            if(login.Estado === "Error")
+                alert(login.Descripcion);
+            else
+                alert(login.message);
+        }
     }
 
     const logOut = (e) =>{

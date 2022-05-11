@@ -6,6 +6,7 @@ const initialState = {
     tipo_user: null,
     nombre: null,
     token: null,
+    autenticado : false,
 }
 
 export const userReducer = (state = initialState, action) =>{
@@ -17,7 +18,8 @@ export const userReducer = (state = initialState, action) =>{
                 mail: action.payload.mail,
                 tipo_user: action.payload.tipo_user,
                 nombre: action.payload.nombre,
-                token: action.payload.token
+                token: action.payload.token,
+                autenticado : action.payload.autenticado
             }
         case ActionTypes.USR_LOGOUT:
             return {
@@ -26,7 +28,10 @@ export const userReducer = (state = initialState, action) =>{
                 mail: null,
                 tipo_user: null,
                 nombre: null,
-                token: null
+                token: null,
+                autenticado: false
             }
+        default:
+            return state;
     }
 }
