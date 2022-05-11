@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import authHeader from './services/auth-headers';
 import { useEffect } from 'react';
 import { userLogin } from './redux/actions/userActions';
+import MyArticles from './Articulos-Autor/MyArticles';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,7 +34,6 @@ function App() {
         token : tokenLocal,
         autenticado : true
       }
-      console.log(usuario.tipo_user)
       dispatch(userLogin(usuario))
     }
   }
@@ -48,6 +48,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/contacto' element={<div></div>} />
         <Route path='/registry' element={<Registry />} />
+        <Route path='/myArticles' element={<MyArticles />} />
       </Routes>
     </BrowserRouter>
     

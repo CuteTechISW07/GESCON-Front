@@ -8,8 +8,9 @@ function Registry(){
     const navigate = useNavigate();
     
     const validation = ()=>{
-        if(user.tipo_user!==6 && user.autenticado)
+        if(user.tipo_user != 6)
             navigate("/");
+            
     }
 
     useEffect(()=>{validation()},[])
