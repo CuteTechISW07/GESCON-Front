@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useSelector} from "react-redux";
 import authHeader from "../services/auth-headers";
+import axios from 'axios'
 
 
 function FormArticulo(){
@@ -24,7 +25,7 @@ function FormArticulo(){
                             <Formulario />
                         </Modal.Body>
                         <Modal.Footer>
-                            <button className="btn-danger">
+                            <button className="btn-danger" onClick={handleClose}>
                                 Cerrar
                             </button>
                         </Modal.Footer>
@@ -37,28 +38,27 @@ function FormArticulo(){
 
 function Formulario(){
     const user = useSelector((state)=>state.usrData);
-    const [archivo,setArchivo] = useState(null);
+    const [archivo,setArchivo] = useState("");
     const [tema, setTema] = useState("");
-    
+    const [message, setMessage] = useState("");
+    const [error, setError] = useState(false);
+
     const handleSubmit = async(e)=>{
         e.preventDefault();
-        console.log(archivo);
-        const body = {
-            id_user : user.id,
-            file : archivo,
-            tema : tema
-        }
-        
-        const requestOptions ={
-            method: "POST",
-            headers : authHeader(),
-            body : JSON.stringify(body),
-        }
-        /*
-        const data = await fetch("http://localhost:3500/Article/insert",requestOptions);
-        const dataJson = await data.json();
-        */
-        console.log(body);
+        //const body={
+        //    id_user : user.id,
+        //    file : archivo,
+        //    tema : tema
+        //}
+
+        const formData = new FormData();
+        formData.append('id_user', user.id);
+        formData.append('file', archivo);
+        formData.append('tema', tema);
+
+        const data = await axios.post("http://localhost:3500/articulos/newArticle",formData, authHeader("multipart"));
+        setError(data.data.error);
+        setMessage(data.data.message);
     }
 
     const handleChange = (toChange, value)=>{
@@ -77,15 +77,18 @@ function Formulario(){
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="articulo">Articulo</label>
-                    <input type="file" name="articulo" id="articulo" accept="application/pdf" onChange={e=>handleChange("archivo",e.target.files)} />
+                    <input type="file" name="articulo" id="articulo" accept="application/pdf" onChange={e=>handleChange("archivo",e.target.files[0])} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="articulo">Tema</label>
-                    <input type="text" name="tema" id="tema" onChange={e=>handleChange("archivo",e.target.value)} placeholder="Tematica de su articulo" />
+                    <input type="text" name="tema" id="tema" onChange={e=>handleChange("tema",e.target.value)} placeholder="Tematica de su articulo" />
                 </div>
                 <button>
                     Enviar
                 </button>
+                <div className="form-group">
+                    <p className={error ? "danger" : "primary"}>{message}</p>
+                </div>
             </form>
         </div>
     );
