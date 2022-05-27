@@ -49,6 +49,7 @@ function App() {
         <Route path='/contacto' element={<div></div>} />
         <Route path='/registry' element={<Registry />} />
         <Route path='/myArticles' element={<MyArticles />} />
+        <Route path='/calificar' element={<Status_Art />} />
       </Routes>
     </BrowserRouter>
     
