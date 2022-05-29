@@ -54,6 +54,7 @@ function App() {
         <Route path='/myArticles' element={<MyArticles />} />
         <Route path="/pruebas" element={<Prueba />} />
         <Route path="/gestion_arts" element={<Pag_Gestion />} />
+        <Route path='/calificar' element={<Status_Art />} />
       </Routes>
     </BrowserRouter>
     
