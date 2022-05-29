@@ -3,8 +3,11 @@ import { Modal } from "react-bootstrap";
 import { useSelector} from "react-redux";
 import authHeader from "../services/auth-headers";
 import axios from 'axios'
+import "./style.css"
 
-
+/**
+ * Componente principal que se va a mostrar
+ */
 function FormArticulo(){
     const [show, setShow] = useState(false);
 
@@ -37,19 +40,18 @@ function FormArticulo(){
 }
 
 function Formulario(){
+    // Datos del usuario
     const user = useSelector((state)=>state.usrData);
+
+    // Estado del componente
     const [archivo,setArchivo] = useState("");
     const [tema, setTema] = useState("");
     const [message, setMessage] = useState("");
     const [error, setError] = useState(false);
 
+    // Función para hacer la petición al servidor
     const handleSubmit = async(e)=>{
         e.preventDefault();
-        //const body={
-        //    id_user : user.id,
-        //    file : archivo,
-        //    tema : tema
-        //}
 
         const formData = new FormData();
         formData.append('id_user', user.id);
@@ -61,6 +63,7 @@ function Formulario(){
         setMessage(data.data.message);
     }
 
+    // Función para almacenar los valores en el estado
     const handleChange = (toChange, value)=>{
         switch(toChange){
             case "archivo":
@@ -74,21 +77,18 @@ function Formulario(){
 
     return(
         <div className="form">
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="articulo">Articulo</label>
-                    <input type="file" name="articulo" id="articulo" accept="application/pdf" onChange={e=>handleChange("archivo",e.target.files[0])} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="articulo">Tema</label>
-                    <input type="text" name="tema" id="tema" onChange={e=>handleChange("tema",e.target.value)} placeholder="Tematica de su articulo" />
-                </div>
-                <button>
-                    Enviar
-                </button>
-                <div className="form-group">
-                    <p className={error ? "danger" : "primary"}>{message}</p>
-                </div>
+           <form className="formulario" onSubmit={handleSubmit}>
+                <br />
+                <div className="titulo">Subir artículo</div>
+                <br />
+                <input type="file" id="inputUsuario" placeholder="Nombre del artículo" onChange={e=>handleChange("archivo",e.files[0])}/>
+                <br />
+                <input type="text" id="inputClave" placeholder="Tema" onChange={e=>handleChange("tema",e.target.value)}/>
+                <br />
+                <br/><br/>
+                <button type="submit" id="ingreso">Subir</button>
+                <br/>
+                {error?<p className="alert-error"> {message} </p> :<p className="alert-fine">{message}</p>}
             </form>
         </div>
     );

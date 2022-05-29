@@ -33,7 +33,7 @@ function Nave(){
                                 {user.tipo_user==1 ? <Link to="myArticles" className='nave padd'>Mis articulos</Link> : <></>}
                                 {user.tipo_user==2 ? <Link to="myRevArticles" className='nave padd'>Articulos a revisar</Link>: <></>}
                                 {user.tipo_user==3 ? <Link to="events" className='nave padd'>Eventos</Link>: <></>}
-                                {user.tipo_user==4 ? <Link to="gestArticles">Gestionar articulos</Link>: <></>}
+                                {user.tipo_user==3 ? <Link to="gestion_arts" className="nave padd">Gestionar articulos</Link>: <></>}
                                 {user.tipo_user==6 || !user.autenticado ? <Link to="registry" className='nave padd'>Registro</Link>: <></>}
                                 {user.tipo_user==6 ? <Link to="users" className='nave padd'>Usuarios</Link>: <></>}
                                 {user.autenticado ? <a className='nave padd' onClick={()=>{logout()}}>Log out</a>:<></>}

@@ -1,17 +1,20 @@
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import './App.css';
+import { useDispatch } from 'react-redux';
+import authHeader from './services/auth-headers';
+import { useEffect } from 'react';
+import { userLogin } from './redux/actions/userActions';
+
+// Imports de los componentes
+import Nave from './Principal/nav'
+import MyArticles from './Articulos-Autor/MyArticles';
+import Prueba from './Prueba/Prueba';
+import Registry from './Registro/Registry';
 import Pag_Gestion from './gestion-articulos/Pag-gestion';
 import Login from './Login/Login';
 import Indx from './Principal/principal';
 import ConsRev from './Consultar_revisiones/ConsRev';
 import Status_Art from './Estado_Articulos/Status';
-import Nave from './Principal/nav'
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import './App.css';
-import Registry from './Registro/Registry';
-import { useDispatch } from 'react-redux';
-import authHeader from './services/auth-headers';
-import { useEffect } from 'react';
-import { userLogin } from './redux/actions/userActions';
-import MyArticles from './Articulos-Autor/MyArticles';
 
 function App() {
   const dispatch = useDispatch();
@@ -49,6 +52,8 @@ function App() {
         <Route path='/contacto' element={<div></div>} />
         <Route path='/registry' element={<Registry />} />
         <Route path='/myArticles' element={<MyArticles />} />
+        <Route path="/pruebas" element={<Prueba />} />
+        <Route path="/gestion_arts" element={<Pag_Gestion />} />
       </Routes>
     </BrowserRouter>
     
