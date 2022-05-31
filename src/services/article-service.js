@@ -1,3 +1,5 @@
+import authHeader from "./auth-headers";
+
 const updateStatus = async (idVersion,newState) =>{
 
     const req = {
@@ -6,10 +8,7 @@ const updateStatus = async (idVersion,newState) =>{
     }
     const requestOptions = {
         method : "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
+        headers: authHeader(""),
         body : JSON.stringify(req)
     }
     const data = await fetch("http://localhost:3500/articulos/setState",requestOptions);

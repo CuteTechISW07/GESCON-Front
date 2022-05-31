@@ -16,7 +16,7 @@ function Nave(){
     }
 
     return(
-<header className="header container-fluid">
+        <header className="header container-fluid">
                     <div className="container-fluid">
                         <div className="row align-items-start">
                             <div className="margin-up col-4">
@@ -35,6 +35,7 @@ function Nave(){
                                 {user.tipo_user==3 ? <Link to="events" className='nave padd'>Eventos</Link>: <></>}
                                 {user.tipo_user==3 ? <Link to="gestion_arts" className="nave padd">Gestionar articulos</Link>: <></>}
                                 {user.tipo_user==6 || !user.autenticado ? <Link to="registry" className='nave padd'>Registro</Link>: <></>}
+                                {user.tipo_user==3 || user.tipo_user==6 ? <Link to="calificar" className="nave padd">Calificar</Link>: <></>}
                                 {user.tipo_user==6 ? <Link to="users" className='nave padd'>Usuarios</Link>: <></>}
                                 {user.autenticado ? <a className='nave padd' onClick={()=>{logout()}}>Log out</a>:<></>}
                             </nav>
