@@ -13,7 +13,6 @@ import Registry from './Registro/Registry';
 import Pag_Gestion from './gestion-articulos/Pag-gestion';
 import Login from './Login/Login';
 import Indx from './Principal/principal';
-import ConsRev from './Consultar_revisiones/ConsRev';
 import Status_Art from './Estado_Articulos/Status';
 
 function App() {
