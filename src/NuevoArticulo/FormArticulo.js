@@ -52,7 +52,7 @@ function Formulario(){
     // Función para hacer la petición al servidor
     const handleSubmit = async(e)=>{
         e.preventDefault();
-
+        console.log(archivo)
         const formData = new FormData();
         formData.append('id_user', user.id);
         formData.append('file', archivo);
@@ -81,7 +81,7 @@ function Formulario(){
                 <br />
                 <div className="titulo">Subir artículo</div>
                 <br />
-                <input type="file" id="inputUsuario" placeholder="Nombre del artículo" onChange={e=>handleChange("archivo",e.files[0])}/>
+                <input type="file" id="inputUsuario" placeholder="Nombre del artículo" onChange={e=>handleChange("archivo",e.target.files[0])}/>
                 <br />
                 <input type="text" id="inputClave" placeholder="Tema" onChange={e=>handleChange("tema",e.target.value)}/>
                 <br />
