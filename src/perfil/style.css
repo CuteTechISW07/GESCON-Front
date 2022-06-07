@@ -1,0 +1,163 @@
+#imgp{
+    border-radius: 1em ;
+  }
+  
+  
+  #form{
+    display: block;
+    width: 300px;
+    height: 320px;
+    background: rgb(255, 255, 255);
+    border-radius: 1em;
+    line-height: 1.2;
+  }
+  
+  #titulo{
+    text-align: center;
+    font-size: 25px;
+    color:#0a1527;
+    text-justify: auto;
+    margin-bottom: 5px;
+    height: 40px;
+  }
+  
+  h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  #boton{
+    align-items: center;
+    size: 30px;
+    font-size: 20px;
+    color:#ffffff;
+    padding: 5px;
+    width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 1em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    background-color: #060b70;
+   
+  }
+#comment1{
+    border-radius: 1em;
+    line-height: 1.2;
+    width: 300px;
+    height: 30px;
+   
+}
+#email1{
+  border-radius: 1em;
+  line-height: 1.2;
+  width: 300px;
+  height: 40px;
+ 
+}
+
+ 
+  #form button:hover{
+    background-color: #0a5ca0;
+    box-shadow: 0 0 50px rgba(202, 26, 255, 1);
+  }
+  
+  
+  iframe { 
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+    color: #0a1527; 
+    width: 760px;
+    height: 490px;
+    border-radius: 28px;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border-radius: .5em;
+    padding: 30px 60px;
+    top: 70px;
+    left: 440px;
+    transform: translate(-50%);
+    text-align: center;
+  }
+  
+  
+  
+  #registro:hover, #recuperar:hover{
+    color: #0034df; 
+  }
+  
+  .navegacion, .navegacion2 {
+  width: 1365px;
+  background-color: #0a1527;
+  
+  }
+  .navegacion ul{
+  list-style: none;
+  }
+  .menu>li {
+  display: inline-block;
+    font-size: small;
+    
+  }
+  .menu>li>a{
+  display: block;
+  padding: 15px 20px;
+  color: #f8f2f2;
+  font-family: 'Georgia';
+  text-decoration: none;
+  }
+  .menu li a:hover{
+  color: #0ba2d4;
+  transition: a11.3s;
+  }
+  .submenu{
+    position:absolute; 
+    z-index:1;
+  background: #07072c;
+  width: auto;
+    border-radius: .5em;
+  display: none;
+    text-align: center;
+  }
+  .submenu li a{
+  display: block;
+  padding: 15px;
+  color: #eceef3;
+  font-family: 'Georgia';
+  text-decoration: none;
+  }
+  .menu li:hover .submenu{
+  display: block;
+  }
+  
+  .menu1>li{
+  width: 1365px;
+  display: inline-block;
+  background-color: #0a1527;
+  }
+
+  .alert-fine{
+    color : green;
+  }
+
+  .alert-error{
+    color : red;
+  }
+
+  #texto{
+      z-index: 1;
+  }
+    #caja { 
+        font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+        color: #0a1527; 
+        z-index: 0;
+        width: 850px;
+        height: 450px;
+        background-color: rgb(184, 186, 186);
+        border-radius: .7em;
+        padding: 30px 60px;
+        top: 180px;
+        left: 660px;
+        transform: translate(-50%);
+        text-align: center;
+    }
+    
+  

@@ -1,0 +1,144 @@
+
+  
+  .login{
+    height: 550px;
+  }
+  
+  
+  #form{
+    display: block;
+    width: 300px;
+    height: 320px;
+    background: rgb(255, 255, 255);
+    border-radius: 1em;
+    line-height: 1.2;
+  }
+  
+  #titulo{
+    text-align: center;
+    font-size: 25px;
+    color:#0a1527;
+    text-justify: auto;
+    margin-bottom: 5px;
+    height: 40px;
+  }
+  
+ 
+  #form input{
+    height: 35px;
+    width: 250px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 5px rgba(147, 144, 144, 0.5);
+    border-radius: 1em;
+    padding: 0 4px;
+    align-items: center;
+  }
+  
+  #Usuario{
+    height: 40px;
+    border: 2px solid #ffffff;
+    box-shadow: 2px 8px 10px rgb(194, 192, 192);
+    border-radius: 15px;
+    padding: 0 8px;
+    width: 100%;
+    margin: 5px 0;
+  }
+  #boton{
+  
+    size: 110%;
+    color:#ffffff;
+    width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 1em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    background-color: #060b70;
+   
+  }
+ 
+  #form button:hover{
+    background-color: #0a5ca0;
+    box-shadow: 0 0 50px rgba(202, 26, 255, 1);
+  }
+  
+  
+  iframe { 
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+    color: #0a1527; 
+    width: 760px;
+    height: 490px;
+    border-radius: 28px;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border-radius: .5em;
+    padding: 30px 60px;
+    top: 70px;
+    left: 440px;
+    transform: translate(-50%);
+    text-align: center;
+  }
+  
+  
+  
+  #registro:hover, #recuperar:hover{
+    color: #0034df; 
+  }
+  
+  .navegacion, .navegacion2 {
+  width: 1365px;
+  background-color: #0a1527;
+  
+  }
+  .navegacion ul{
+  list-style: none;
+  }
+  .menu>li {
+  display: inline-block;
+    font-size: small;
+    
+  }
+  .menu>li>a{
+  display: block;
+  padding: 15px 20px;
+  color: #f8f2f2;
+  font-family: 'Georgia';
+  text-decoration: none;
+  }
+  .menu li a:hover{
+  color: #0ba2d4;
+  transition: a11.3s;
+  }
+  .submenu{
+    position:absolute; 
+    z-index:1;
+  background: #07072c;
+  width: auto;
+    border-radius: .5em;
+  display: none;
+    text-align: center;
+  }
+  .submenu li a{
+  display: block;
+  padding: 15px;
+  color: #eceef3;
+  font-family: 'Georgia';
+  text-decoration: none;
+  }
+  .menu li:hover .submenu{
+  display: block;
+  }
+  
+  .menu1>li{
+  width: 1365px;
+  display: inline-block;
+  background-color: #0a1527;
+  }
+
+  .alert-fine{
+    color : green;
+  }
+
+  .alert-error{
+    color : red;
+  }
