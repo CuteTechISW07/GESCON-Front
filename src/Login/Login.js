@@ -3,7 +3,7 @@ import {userLogin} from '../redux/actions/userActions'
 import {useState} from 'react'
 import authService from '../services/auth-service';
 import { useNavigate } from 'react-router-dom';
-
+import "./style.css"
 
 function Login(){
 
@@ -55,21 +55,19 @@ function Formulario(){
 
     return(
         <div className="col-auto p-5">
-            <form action="#" className="border p-3 form">
+            <form  id = "form"  action="#" className="border p-3 form">
                 <div className="form-group">
-                    <label htmlFor="email">Correo</label>
+                    <label id ="titulo" htmlFor="email">Correo</label>
                     <input type="email" name="email" id="email" className="form-control" onChange={e=>handleChange("correo",e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">Contraseña</label>
+                    <label id ="titulo"htmlFor="password">Contraseña</label>
                     <input type="password" name="password" id="password" className="form-control" onChange={e=>handleChange("contra",e.target.value)} />
                 </div>
-                <div className="justify-content-center align-items-center pt-2">
-                    <button type="submit" className="btn btn-primary" onClick={e=>handleSubmit(e)}>Login</button>
+                <div  className="justify-content-center align-items-center pt-2">
+                    <button type="submit" id="boton" className="btn btn-primary" onClick={e=>handleSubmit(e)}>Ingresar  </button>
                 </div>
-                <div className="justify-content-center align-items-center pt-2">
-                    <button className="btn btn-danger" onClick={e=>logOut(e)}>Logout</button>
-                </div>
+                
             </form>
         </div>
     );

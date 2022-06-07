@@ -15,6 +15,7 @@ import Login from './Login/Login';
 import Indx from './Principal/principal';
 import Status_Art from './Estado_Articulos/Status';
 import RevisarArticulos from "./Revisar Articulos/RevisarArticulos";
+import Perfil from "./perfil/perfil";
 
 function App() {
   const dispatch = useDispatch();
@@ -56,6 +57,8 @@ function App() {
         <Route path="/gestion_arts" element={<Pag_Gestion />} />
         <Route path='/calificar' element={<Status_Art />} />
         <Route path='/myRevArticles' element={<RevisarArticulos />} />
+        <Route path='/perfil' element={<Perfil />} />
+
       </Routes>
     </BrowserRouter>
     

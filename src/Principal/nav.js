@@ -29,7 +29,7 @@ function Nave(){
                                 
                                 <Link to="congresos" className="nave padd" >Congresos</Link>
                                 <Link to="contacto" className="nave padd">Contacto</Link>                      
-                                {user.autenticado ? <Link to="perfil" className="nave padd">Perfil</Link> : <Link to="login" className="nave padd">Login</Link>}                      
+                                {user.tipo_user ==1 ?<Link to="perfil" className="nave padd">Perfil</Link> : <Link to="login" className="nave padd">Login</Link>}                      
                                 {user.tipo_user==1 ? <Link to="myArticles" className='nave padd'>Mis articulos</Link> : <></>}
                                 {user.tipo_user==2 ? <Link to="myRevArticles" className='nave padd'>Articulos a revisar</Link>: <></>}
                                 {user.tipo_user==3 ? <Link to="events" className='nave padd'>Eventos</Link>: <></>}
