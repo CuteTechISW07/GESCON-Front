@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import { Modal } from 'react-bootstrap';
 import authHeader from '../services/auth-headers';
 
 /**
@@ -26,11 +27,6 @@ function Head_Gestion(){
                 <div className="row">
                     <h1 className="text-center pt-3">Gestión de artículos</h1>
                 </div>
-                <div className="row pt-3">
-                    <article>
-
-                    </article>
-                </div>
             </div>
         </article>   
     );
@@ -57,6 +53,19 @@ function Table_Arts(){
     const [articulos, setArticulos] = useState([]);
     const [error, setError] = useState(false);
     const [message, setMessage] = useState("");
+    const [articleSelected, setArticleSelected] = useState(0);
+
+    /**
+     * Variables y funciones para controlar el estado del modal
+     */
+    const [show,setShow] = useState(false);
+
+    const handleShow = (id_articulo) => {
+        console.log(id_articulo);
+        setArticleSelected(id_articulo);
+        setShow(true);
+    };
+    const handleClose = ()=> setShow(false);
 
     // Función que se va a cargar antes de que se abra el componente
     useEffect(()=>{
@@ -76,7 +85,7 @@ function Table_Arts(){
 
         // Se obtienen los datos de la API y se guardan en el estado del componente
         const dataJson = await data.json();
-        console.log(dataJson);
+        
         setError(dataJson.error);
         setMessage(dataJson.message);
         setArticulos(dataJson.data);
@@ -99,10 +108,10 @@ function Table_Arts(){
                             </tr>
                         </thead>
                     {/* Aquí mandamos a llamar (si no hay error) el componente donde se le da formato de tabla al arreglo */}
-                    {error ? message : ((articulos != null ? <Rows_Arts rows = {articulos} /> : message))}
+                    {error ? message : ((articulos != null ? <Rows_Arts rows = {articulos} handleShow={handleShow}/> : message))}
                 </table>
+                <ModalAsignar handleShow={handleShow} handleClose={handleClose} show={show} idarticulo={articleSelected} refresh={responseAPI} />
                 </div>
-
             </div>
         </div>
     );
@@ -114,10 +123,11 @@ function Table_Arts(){
  * @param {*} props rows: El arreglo completo de articulos
  * @returns TBody completo de los articulos
  */
-function Rows_Arts(props){
+function Rows_Arts({rows,handleShow}){
     // Recorremos el arreglo con la función map (similar a un for pero nos deja almacenar con un return los componentes en la constante que declaramos)
     // Aquí se le da el formato a cada columna con respecto a lo que hayamos recibido
-    const arts = props.rows.map((row,i)=>{
+    const arts = rows.map((row,i)=>{
+
         return(
             <tr key={i}>
                 <td scope='row'>
@@ -133,7 +143,7 @@ function Rows_Arts(props){
                     {row.estatus}
                 </th>
                 <td>
-                    {row.estatus === "Sin asignar" ? <button className='btn btn-primary'>Asignar revisor</button> : <></>}
+                    {row.estatus === "Sin asignar" ? <button className='btn btn-primary' onClick={e=>handleShow(row.id_articulo)}>Asignar revisor</button> : <></>}
                 </td>
             </tr>
         );
@@ -144,6 +154,89 @@ function Rows_Arts(props){
         <tbody>
             {arts}
         </tbody>
+    );
+}
+
+function ModalAsignar({show, handleClose, handleShow, refresh, idarticulo}){
+
+    const [list, setList] = useState([]);
+    const [error, setError] = useState("");
+    const [message, setMessage] = useState(""); 
+    const [id_revisor, setIdRevisor] = useState(0); 
+
+    const handleSubmit = async(e)=>{
+        e.preventDefault()
+        if(id_revisor == 0){
+            alert("Debe seleccionar un revisor valido");
+        }
+
+        const body = {
+            id_revisor : id_revisor,
+            id_articulo : idarticulo
+        }
+
+        const requestOptions = {
+            body: JSON.stringify(body),
+            headers : authHeader(""),
+            method : "POST"
+        }
+
+        const data = await fetch("http://localhost:3500/revisores/asignar", requestOptions);
+        const dataJson = await data.json();
+
+        setError(dataJson.error);
+        setMessage(dataJson.message);
+        alert(message);
+        handleClose();
+        refresh();
+    }
+
+    const getRevisores = async()=>{
+        const url = "http://localhost:3500/revisores/list"
+        const requestOptions = {
+            method: "GET",
+            headers : authHeader("")
+        }
+        const data = await fetch(url, requestOptions);
+        const dataJson = await data.json();
+        setList(dataJson.data);
+        setError(dataJson.error);
+        setMessage(dataJson.message)
+    }
+
+    const options = list.map((rev, i)=>{
+        return(
+            <option value={rev.idUsuario} key={i}>{rev.nombre}</option>
+        );
+    }) 
+    
+    useEffect(()=>{
+        getRevisores()
+    },[])
+
+    return(
+        <Modal show={show}>
+            <Modal.Header>
+                <Modal.Title>Asignar revisor</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <div className='form'>
+                    <form onSubmit={handleSubmit}>
+                        <select onChange={e=>setIdRevisor(e.target.value)}>
+                            <option value={0}>Seleccione una opción</option>
+                            {options}
+                        </select>
+                        <div className='pt-3'>
+                            <button className='btn btn-primary col-md-2'>Asignar</button>
+                        </div>
+                    </form>
+                </div>
+                {error?<p className="alert-error"> {message} </p> :<></>}
+            </Modal.Body>
+            <Modal.Footer>
+                <button className='btn btn-danger' onClick={handleClose}>Cerrar</button>
+            </Modal.Footer>
+        </Modal>
     );
 }
 

@@ -14,6 +14,7 @@ import Pag_Gestion from './gestion-articulos/Pag-gestion';
 import Login from './Login/Login';
 import Indx from './Principal/principal';
 import Status_Art from './Estado_Articulos/Status';
+import RevisarArticulos from "./Revisar Articulos/RevisarArticulos";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ function App() {
         <Route path="/pruebas" element={<Prueba />} />
         <Route path="/gestion_arts" element={<Pag_Gestion />} />
         <Route path='/calificar' element={<Status_Art />} />
+        <Route path='/myRevArticles' element={<RevisarArticulos />} />
       </Routes>
     </BrowserRouter>
     
