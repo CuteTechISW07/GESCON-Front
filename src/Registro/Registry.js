@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 import authService from '../services/auth-service';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import "./style.css"
 
 function Registry(){
     const user = useSelector((state) => state.usrData);
@@ -73,15 +74,15 @@ function RegistryAutor(){
     }
 
     return(
-        <div className="m-0 row justify-content-center align-items-center">
+        <div  className="m-0 row justify-content-center align-items-center">
 
             <div className="wrap-login1002 p-l-55 p-r-55 p-t-80 p-b-30 col-auto">
                 <br />
-                <span className="login100-form-title p-b-37">
+                <span id="titulo" className="login100-form-title p-b-37">
                     Crear cuenta
                 </span>
                 <br /><br />
-                <form onSubmit={e=>handleSubmit(e)}>    
+                <form id="form" onSubmit={e=>handleSubmit(e)}>    
                     <div className="wrap-input100 validate-input m-b-20" data-validate="Ingresa un nombre válido ">
                         <input id="name" className="input100" type="text"
                             autoComplete="off" name="username" placeholder="Nombre" onChange={e=>handleChange("nombre",e.target.value)}/>
@@ -186,7 +187,7 @@ function RegistryAdmin(){
                         <span className="focus-input100"></span>
                     </div>
                     <br />
-                    <div className="wrap-input100 m-b-20" onChange={e=>handleChange("tipoUser",e.target.value)}>
+                    <div  className="wrap-input100 m-b-20" onChange={e=>handleChange("tipoUser",e.target.value)}>
                         <input type="radio" value="1" name="tipoUser" />
                         <span className="focus-input100">Autor</span><br/>
                         <input type="radio" value="2" name="tipoUser" />
