@@ -5,3 +5,9 @@ iframe{
     left: 63%;
     top: 17%
 }
+
+.danger-error{
+    background-color: rgb(235, 134, 134);
+    color: red;
+    border-radius: 10px;
+}
