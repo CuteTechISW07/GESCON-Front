@@ -1,9 +1,9 @@
 iframe{
-    width: 60%;
-    height: 800px;
+    width: 60%!important;
+    height: 800px!important;
     position: absolute;
-    left: 63%;
-    top: 17%
+    left: 64% !important;
+    top: 17% !important;
 }
 
 .danger-error{
